@@ -1,8 +1,11 @@
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+// 🌎 Project imports:
 import 'package:delivery/core/style/styles.dart';
 import 'package:delivery/core/utils/color_shift.dart';
 import 'package:delivery/core/utils/constant.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 ThemeData get lightThemeData {
   Color accent = Colors.orangeAccent;
