@@ -5,7 +5,7 @@ import 'package:grpc/grpc.dart';
 
 // ignore: one_member_abstracts
 abstract class UseCase<Type, Object> {
-  Future<Either<GrpcError, Type>> call(Object params);
+  Future<Either<GrpcError, Type>> call(Object request);
 }
 
 class NoParams extends Equatable {
