@@ -1,0 +1,13 @@
+default_stages: [commit, push]
+repos:
+    # - repo: https://github.com/fluttercommunity/import_sorter
+    #   rev: "26e6ec6aceb6e5fbe62af88b0599824ca9f7ac3a"
+    #   hooks:
+    #       - id: flutter-import-sorter
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v3.2.0
+      hooks:
+          - id: trailing-whitespace
+          - id: end-of-file-fixer
+          - id: check-yaml
+          - id: check-added-large-files

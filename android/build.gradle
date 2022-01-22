@@ -1,20 +1,54 @@
 buildscript {
     ext.kotlin_version = '1.3.50'
     repositories {
-        google()
-        jcenter()
+        // google()
+        // jcenter()
+
+        maven {
+            url 'http://nexus.prod.uci.cu/repository/maven-all/'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'http://nexus.prod.uci.cu/repository/maven.google.com/'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'http://nexus.prod.uci.cu/repository/maven-central/'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'http://nexus.prod.uci.cu/repository/repo.maven.apache.org/'
+            allowInsecureProtocol = true
+        }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:7.0.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 allprojects {
     repositories {
-        google()
-        jcenter()
+        // google()
+        // jcenter()
+
+        maven {
+            url 'http://nexus.prod.uci.cu/repository/maven-all/'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'http://nexus.prod.uci.cu/repository/maven.google.com/'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'http://nexus.prod.uci.cu/repository/maven-central/'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'http://nexus.prod.uci.cu/repository/repo.maven.apache.org/'
+            allowInsecureProtocol = true
+        }
     }
 }
 
