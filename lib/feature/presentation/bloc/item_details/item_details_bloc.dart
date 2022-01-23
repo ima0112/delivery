@@ -15,7 +15,7 @@ part 'item_details_bloc.freezed.dart';
 class ItemDetailsBloc extends Bloc<ItemDetailsEvent, ItemDetailsState> {
   final GetItemDetails getItemDetails;
 
-  ItemDetailsBloc(this.getItemDetails) : super(_Initial()) {
+  ItemDetailsBloc(this.getItemDetails) : super(_Loading()) {
     on<ItemDetailsEvent>((event, emit) async {
       await event.when(
         getItemDetails: (id) async =>

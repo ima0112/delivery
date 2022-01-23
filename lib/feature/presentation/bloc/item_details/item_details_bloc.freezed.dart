@@ -208,10 +208,6 @@ abstract class _GetItemsDetails implements ItemDetailsEvent {
 class _$ItemDetailsStateTearOff {
   const _$ItemDetailsStateTearOff();
 
-  _Initial initial() {
-    return const _Initial();
-  }
-
   _Loading loading() {
     return const _Loading();
   }
@@ -234,7 +230,6 @@ const $ItemDetailsState = _$ItemDetailsStateTearOff();
 mixin _$ItemDetailsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
     required TResult Function(Item item) loaded,
@@ -242,7 +237,6 @@ mixin _$ItemDetailsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
     TResult Function(Item item)? loaded,
@@ -251,7 +245,6 @@ mixin _$ItemDetailsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Loaded value) loaded,
@@ -259,7 +252,6 @@ mixin _$ItemDetailsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Loaded value)? loaded,
@@ -283,97 +275,6 @@ class _$ItemDetailsStateCopyWithImpl<$Res>
   final ItemDetailsState _value;
   // ignore: unused_field
   final $Res Function(ItemDetailsState) _then;
-}
-
-/// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$ItemDetailsStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
-}
-
-/// @nodoc
-
-class _$_Initial implements _Initial {
-  const _$_Initial();
-
-  @override
-  String toString() {
-    return 'ItemDetailsState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() error,
-    required TResult Function(Item item) loaded,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? error,
-    TResult Function(Item item)? loaded,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_Loaded value) loaded,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Loaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements ItemDetailsState {
-  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
@@ -413,7 +314,6 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
     required TResult Function(Item item) loaded,
@@ -424,7 +324,6 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
     TResult Function(Item item)? loaded,
@@ -439,7 +338,6 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Loaded value) loaded,
@@ -450,7 +348,6 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Loaded value)? loaded,
@@ -504,7 +401,6 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
     required TResult Function(Item item) loaded,
@@ -515,7 +411,6 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
     TResult Function(Item item)? loaded,
@@ -530,7 +425,6 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Loaded value) loaded,
@@ -541,7 +435,6 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Loaded value)? loaded,
@@ -620,7 +513,6 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() error,
     required TResult Function(Item item) loaded,
@@ -631,7 +523,6 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? error,
     TResult Function(Item item)? loaded,
@@ -646,7 +537,6 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Loaded value) loaded,
@@ -657,7 +547,6 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Loaded value)? loaded,

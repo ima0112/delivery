@@ -2,21 +2,16 @@
 // in delivery/test/feature/presentation/bloc/items_bloc_test.dart.
 // Do not manually edit this file.
 
-// 🎯 Dart imports:
 import 'dart:async' as _i5;
 
-// 📦 Package imports:
 import 'package:dartz/dartz.dart' as _i3;
-import 'package:grpc/grpc.dart' as _i6;
-import 'package:mockito/mockito.dart' as _i1;
-
-// 🌎 Project imports:
+import 'package:delivery/feature/domain/repositories/delivery_repository.dart'
+    as _i2;
 import 'package:delivery/feature/domain/usecase/get_items.dart' as _i4;
 import 'package:delivery/protos/google/protobuf/empty.pb.dart' as _i8;
 import 'package:delivery/protos/protos/main.pb.dart' as _i7;
-
-import 'package:delivery/feature/domain/repositories/delivery_repository.dart'
-    as _i2;
+import 'package:grpc/grpc.dart' as _i6;
+import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values
 // ignore_for_file: avoid_setters_without_getters

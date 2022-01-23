@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:delivery/protos/protos/main.pb.dart';
 import 'package:octo_image/octo_image.dart';
+import 'package:go_router/go_router.dart';
 
 class SearchGridView extends StatelessWidget {
   const SearchGridView({
@@ -42,7 +43,8 @@ class SearchGridView extends StatelessWidget {
                 child: InkWell(
                   highlightColor: Colors.transparent,
                   splashColor: Colors.transparent,
-                  onTap: () {},
+                  onTap: () => context
+                      .goNamed('details', params: {'id': items[index].id}),
                   child: Container(
                     decoration: BoxDecoration(
                       color: _color,

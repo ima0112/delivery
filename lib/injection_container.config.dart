@@ -4,18 +4,15 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-// 📦 Package imports:
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-// 🌎 Project imports:
 import 'feature/data/datasource/delivery_data_source.dart' as _i3;
 import 'feature/data/repositories/delivery_repository_impl.dart' as _i5;
 import 'feature/domain/repositories/delivery_repository.dart' as _i4;
 import 'feature/domain/usecase/get_item_details.dart' as _i6;
 import 'feature/domain/usecase/get_items.dart' as _i7;
 import 'feature/presentation/bloc/item_details/item_details_bloc.dart' as _i8;
-
 import 'feature/presentation/bloc/items/items_bloc.dart'
     as _i9; // ignore_for_file: unnecessary_lambdas
 

@@ -40,10 +40,12 @@ class _ItemsPageState extends State<ItemsPage> {
         builder: (context, state) {
           return state.when(
             loading: () => SearchGridSkeleton(),
-            loaded: (items) => SearchGridView(
-              items: items,
+            loaded: (items) => SafeArea(
+              child: SearchGridView(
+                items: items,
+              ),
             ),
-            error: () => Container(
+            error: () => SizedBox(
               child: Center(
                 child: Text('Error'),
               ),

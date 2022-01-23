@@ -1,4 +1,6 @@
 // 🐦 Flutter imports:
+import 'package:delivery/feature/presentation/bloc/item_details/item_details_bloc.dart';
+import 'package:delivery/feature/presentation/pages/details/details_page.dart';
 import 'package:flutter/material.dart';
 
 // 📦 Package imports:
@@ -17,8 +19,15 @@ import 'injection_container.dart';
 void main() {
   configureDependencies();
   runApp(
-    BlocProvider(
-      create: (context) => getIt<ItemsBloc>(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<ItemsBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<ItemDetailsBloc>(),
+        ),
+      ],
       child: MyApp(),
     ),
   );
@@ -60,7 +69,21 @@ class _MyAppState extends State<MyApp> {
           transitionKey: state.pageKey,
           screen: ItemsPage(),
         ),
-        routes: [],
+        routes: [
+          GoRoute(
+              path: 'details/:id',
+              name: 'details',
+              pageBuilder: (context, state) {
+                final id = state.params['id'];
+
+                return CupertinoTransitionPageWrapper(
+                  transitionKey: state.pageKey,
+                  screen: DetailsPage(
+                    id: id!,
+                  ),
+                );
+              }),
+        ],
       ),
     ],
   );

@@ -23,7 +23,7 @@ void main() {
   });
 
   test('initialState should be Empty', () {
-    expect(bloc.state, equals(ItemDetailsState.initial()));
+    expect(bloc.state, equals(ItemDetailsState.loading()));
   });
 
   group('GetItems', () {
