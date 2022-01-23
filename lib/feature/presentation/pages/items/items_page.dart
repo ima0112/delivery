@@ -1,5 +1,6 @@
 // 🐦 Flutter imports:
 import 'package:delivery/core/provider/app_provider.dart';
+import 'package:delivery/feature/presentation/pages/error/error_page.dart';
 import 'package:delivery/feature/presentation/widgets/buttons/buttons.dart';
 import 'package:flutter/material.dart';
 
@@ -58,11 +59,7 @@ class _ItemsPageState extends State<ItemsPage> {
                 items: items,
               ),
             ),
-            error: () => SizedBox(
-              child: Center(
-                child: Text('Error'),
-              ),
-            ),
+            error: () => ErrorPage(),
           );
         },
       ),
