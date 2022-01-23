@@ -9,5 +9,6 @@ Color error = const Color(0xFFF44336);
 Color black = Colors.black;
 Color white = Colors.white;
 
+const url = 'http://192.168.0.100:9000/';
 const host = '192.168.0.100';
 const port = 22210;

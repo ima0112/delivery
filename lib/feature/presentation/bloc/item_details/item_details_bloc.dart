@@ -1,7 +1,10 @@
+// 📦 Package imports:
 import 'package:bloc/bloc.dart';
-import 'package:delivery/feature/domain/usecase/get_item_details.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+
+// 🌎 Project imports:
+import 'package:delivery/feature/domain/usecase/get_item_details.dart';
 import '../../../../protos/protos/main.pb.dart';
 
 part 'item_details_event.dart';
@@ -14,7 +17,7 @@ class ItemDetailsBloc extends Bloc<ItemDetailsEvent, ItemDetailsState> {
 
   ItemDetailsBloc(this.getItemDetails) : super(_Initial()) {
     on<ItemDetailsEvent>((event, emit) async {
-      event.when(
+      await event.when(
         getItemDetails: (id) async =>
             await _mapEventGetItemDetailsToState(emit, id),
       );

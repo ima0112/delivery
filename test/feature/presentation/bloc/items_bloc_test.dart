@@ -1,14 +1,17 @@
+// 📦 Package imports:
+import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
-import 'package:delivery/feature/domain/usecase/get_items.dart';
-import 'package:delivery/feature/presentation/bloc/items/items_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:grpc/grpc.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'items_bloc_test.mocks.dart';
-import 'package:bloc_test/bloc_test.dart';
-import 'package:delivery/protos/protos/main.pb.dart';
+
+// 🌎 Project imports:
+import 'package:delivery/feature/domain/usecase/get_items.dart';
+import 'package:delivery/feature/presentation/bloc/items/items_bloc.dart';
 import 'package:delivery/protos/google/protobuf/empty.pb.dart';
+import 'package:delivery/protos/protos/main.pb.dart';
+import 'items_bloc_test.mocks.dart';
 
 @GenerateMocks([GetItems])
 void main() {
@@ -21,7 +24,7 @@ void main() {
   });
 
   test('initialState should be Empty', () {
-    expect(bloc.state, equals(ItemsState.initial()));
+    expect(bloc.state, equals(ItemsState.loading()));
   });
 
   group('GetItems', () {
