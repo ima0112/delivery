@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:delivery/feature/domain/usecase/get_item_details.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import '../../../test/feature/usecase/get_items_test.mocks.dart';
+import '../../../../test/feature/domain/usecase/get_items_test.mocks.dart';
 import 'package:delivery/protos/protos/main.pb.dart';
 
 void main() {
