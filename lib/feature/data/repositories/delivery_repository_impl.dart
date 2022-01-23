@@ -13,14 +13,22 @@ class DeliveryRepositoryImpl implements DeliveryRepository {
 
   @override
   Future<Either<GrpcError, GetItemResponse>> getItemDetails(
-      GetItemRequest request) {
-    // TODO: implement getItemDetails
-    throw UnimplementedError();
+      GetItemRequest request) async {
+    try {
+      final item = await deliveryDataSource.getItemDetails(request);
+      return Right(item);
+    } on Exception {
+      return Left(GrpcError.unknown());
+    }
   }
 
   @override
-  Future<Either<GrpcError, ListItemResponse>> getItems() {
-    // TODO: implement getItems
-    throw UnimplementedError();
+  Future<Either<GrpcError, ListItemResponse>> getItems() async {
+    try {
+      final item = await deliveryDataSource.getItems();
+      return Right(item);
+    } on Exception {
+      return Left(GrpcError.unknown());
+    }
   }
 }

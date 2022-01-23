@@ -1,7 +1,10 @@
 // 🐦 Flutter imports:
 import 'package:flutter/material.dart';
 
+import 'injection_container.dart';
+
 void main() {
+  configureDependencies();  
   runApp(MyApp());
 }
 
