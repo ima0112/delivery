@@ -12,9 +12,9 @@ class DeliveryRepositoryImpl implements DeliveryRepository {
   DeliveryRepositoryImpl({required this.deliveryDataSource});
 
   @override
-  Future<Either<GrpcError, Item>> getItemDetails(GetItemRequest request) async {
+  Future<Either<GrpcError, Item>> getItemDetails(String id) async {
     try {
-      final item = await deliveryDataSource.getItemDetails(request);
+      final item = await deliveryDataSource.getItemDetails(id);
       return Right(item);
     } on Exception {
       return Left(GrpcError.unknown());

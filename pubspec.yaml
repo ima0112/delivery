@@ -51,6 +51,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  # flutter test integration_test/app_test.dart
+  integration_test:
+    sdk: flutter
+
+  bloc_test: ^8.0.2
   build_runner: ^2.1.1
   flutter_lints: ^1.0.3
   freezed: ^0.14.2

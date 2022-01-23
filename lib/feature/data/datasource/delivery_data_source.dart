@@ -4,7 +4,7 @@ import '../../../protos/protos/main.pbgrpc.dart';
 
 abstract class DeliveryDataSource {
   Future<List<Item>> getItems();
-  Future<Item> getItemDetails(GetItemRequest request);
+  Future<Item> getItemDetails(String id);
 }
 
 @Injectable(as: DeliveryDataSource)
@@ -14,8 +14,8 @@ class DeliveryDataSourceImpl implements DeliveryDataSource {
   DeliveryDataSourceImpl({required this.client});
 
   @override
-  Future<Item> getItemDetails(GetItemRequest request) async {
-    final response = await client.getItem(request);
+  Future<Item> getItemDetails(String id) async {
+    final response = await client.getItem(GetItemRequest(id: id));
 
     if (response.hasItem()) {
       return response.item;

@@ -47,19 +47,19 @@ void main() {
   });
 
   group('getItemDetails', () {
-    final tRequest = GetItemRequest(id: '1');
-    final tResponse = Item();
+    const tId = '1';
+    final tItem = Item();
 
     test(
         'should return data when '
         'the call to data source is successful', () async {
       when(mockDeliveryDataSource.getItemDetails(any))
-          .thenAnswer((_) async => tResponse);
+          .thenAnswer((_) async => tItem);
 
-      final result = await repository.getItemDetails(tRequest);
+      final result = await repository.getItemDetails(tId);
 
-      verify(mockDeliveryDataSource.getItemDetails(tRequest));
-      expect(result, Right(tResponse));
+      verify(mockDeliveryDataSource.getItemDetails(tId));
+      expect(result, Right(tItem));
     });
 
     test(
@@ -67,9 +67,9 @@ void main() {
         'the call to data source is unsuccessful', () async {
       when(mockDeliveryDataSource.getItemDetails(any)).thenThrow(Exception());
 
-      final result = await repository.getItemDetails(tRequest);
+      final result = await repository.getItemDetails(tId);
 
-      verify(mockDeliveryDataSource.getItemDetails(tRequest));
+      verify(mockDeliveryDataSource.getItemDetails(tId));
       expect(result, Left(GrpcError.unknown()));
     });
   });

@@ -7,5 +7,5 @@ import '../../../protos/protos/main.pb.dart';
 
 abstract class DeliveryRepository {
   Future<Either<GrpcError, List<Item>>> getItems();
-  Future<Either<GrpcError, Item>> getItemDetails(GetItemRequest request);
+  Future<Either<GrpcError, Item>> getItemDetails(String id);
 }
