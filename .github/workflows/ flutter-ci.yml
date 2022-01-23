@@ -16,42 +16,36 @@ on:
 
 jobs:
   test:
-    build:
-      # This job will run on macos-latest virtual machine
-      runs-on: macos-latest
-      steps:
-        - name: checkout
-          uses: actions/checkout@v2
+    # This job will run on macos-latest virtual machine
+    runs-on: macos-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
 
-        # Setup the flutter environment.
-        - uses: subosito/flutter-action@v1
-          with:
-            channel: "stable" # 'dev', 'alpha', default to: 'stable'
-            flutter-version: "2.2.3" # you can also specify exact version of flutter
+      # Setup the flutter environment.
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "stable" # 'dev', 'alpha', default to: 'stable'
+          flutter-version: "2.2.3" # you can also specify exact version of flutter
 
-        - name: Get flutter dependencies.
-          run: flutter pub get
+      - name: Get flutter dependencies.
+        run: flutter pub get
 
-        - name: Statically analyze the Dart code for any errors.
-          run: flutter analyze .
+      - name: Statically analyze the Dart code for any errors.
+        run: flutter analyze .
 
-        - name: Ordering import.
-          run: flutter pub run import_sorter:main
+      - name: Ordering import.
+        run: flutter pub run import_sorter:main
 
-        - name: Run widget tests for our flutter project.
-          run: flutter test
+      - name: Run widget tests for our flutter project.
+        run: flutter test
 
   driver_android:
     runs-on: macos-latest
     strategy:
       matrix:
-        api-level: [21, 30]
-        arch: [x86, x86_64, arm64-v8a]
-        # exclude:
-        #   - api-level: 21
-        #     arch: x86_64
-        # - api-level: 29
-        #   arch: x86
+        api-level: [22, 30]
+        arch: [x86]
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -67,4 +61,4 @@ jobs:
           api-level: ${{ matrix.api-level }}
           arch: ${{ matrix.arch }}
           profile: Nexus 6
-          script: "flutter drive --driver=test_driver/integration_driver.dart --target=integration_test/app_test.dart"
+          script: "flutter drive --driver=integration_test/app_test.dart --target=integration_test/app_test.dart"
