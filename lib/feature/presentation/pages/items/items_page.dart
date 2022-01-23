@@ -1,5 +1,6 @@
 // 🐦 Flutter imports:
 import 'package:delivery/core/provider/app_provider.dart';
+import 'package:delivery/feature/presentation/pages/error/error_page.dart';
 import 'package:delivery/feature/presentation/widgets/buttons/buttons.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:delivery/core/style/styles.dart';
 
 import 'package:delivery/feature/presentation/bloc/items/items_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'widgets/items_list.dart';
 import 'widgets/items_skeleton.dart';
@@ -58,11 +60,7 @@ class _ItemsPageState extends State<ItemsPage> {
                 items: items,
               ),
             ),
-            error: () => SizedBox(
-              child: Center(
-                child: Text('Error'),
-              ),
-            ),
+            error: () => ErrorPage(),
           );
         },
       ),
