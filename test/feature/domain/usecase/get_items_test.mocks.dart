@@ -37,9 +37,8 @@ class MockDeliveryRepository extends _i1.Mock
               _FakeEither_0<_i5.GrpcError, List<_i6.Item>>())) as _i4
           .Future<_i2.Either<_i5.GrpcError, List<_i6.Item>>>);
   @override
-  _i4.Future<_i2.Either<_i5.GrpcError, _i6.Item>> getItemDetails(
-          _i6.GetItemRequest? request) =>
-      (super.noSuchMethod(Invocation.method(#getItemDetails, [request]),
+  _i4.Future<_i2.Either<_i5.GrpcError, _i6.Item>> getItemDetails(String? id) =>
+      (super.noSuchMethod(Invocation.method(#getItemDetails, [id]),
               returnValue: Future<_i2.Either<_i5.GrpcError, _i6.Item>>.value(
                   _FakeEither_0<_i5.GrpcError, _i6.Item>()))
           as _i4.Future<_i2.Either<_i5.GrpcError, _i6.Item>>);

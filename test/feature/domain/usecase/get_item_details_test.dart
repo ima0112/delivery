@@ -14,16 +14,16 @@ void main() {
     usecase = GetItemDetails(mockDeliveryDetails);
   });
 
-  final tRequest = GetItemRequest(id: '1');
-  final tResponse = Item();
+  const tId = '1';
+  final tItem = Item();
   test('should get Item for the id from the repository', () async {
     when(mockDeliveryDetails.getItemDetails(any))
-        .thenAnswer((_) async => Right(tResponse));
+        .thenAnswer((_) async => Right(tItem));
 
-    final result = await usecase(tRequest);
+    final result = await usecase(tId);
 
-    expect(result, Right(tResponse));
-    verify(mockDeliveryDetails.getItemDetails(tRequest));
+    expect(result, Right(tItem));
+    verify(mockDeliveryDetails.getItemDetails(tId));
     verifyNoMoreInteractions(mockDeliveryDetails);
   });
 }

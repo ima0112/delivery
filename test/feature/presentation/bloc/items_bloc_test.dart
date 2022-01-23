@@ -25,31 +25,33 @@ void main() {
   });
 
   group('GetItems', () {
-  group('Getting data is Succesfully', () {
-    final tItemsList = List.generate(10, (index) => Item());
+    group('Getting data is Succesfully', () {
+      final tItemsList = List.generate(10, (index) => Item());
 
-    setUp(() {
-      when(mockGetItems(any)).thenAnswer((_) async => Right(tItemsList));
+      setUp(() {
+        when(mockGetItems(any)).thenAnswer((_) async => Right(tItemsList));
+      });
+
+      blocTest<ItemsBloc, ItemsState>(
+          'should get data from the getItems use case',
+          build: () => bloc,
+          act: (bloc) => bloc.add(ItemsEvent.getItems()),
+          verify: (_) {
+            verify(mockGetItems(Empty()));
+          });
+
+      blocTest<ItemsBloc, ItemsState>(
+          'should emit [Loading, Loaded] when data is gotten succesfully',
+          build: () => bloc,
+          act: (bloc) => bloc.add(ItemsEvent.getItems()),
+          expect: () => [
+                ItemsState.loading(),
+                ItemsState.loaded(items: tItemsList),
+              ],
+          verify: (_) {
+            verify(mockGetItems(Empty()));
+          });
     });
-
-    blocTest<ItemsBloc, ItemsState>(
-        'should get data from the getItems use case',
-        build: () => bloc,
-        act: (bloc) => bloc.add(ItemsEvent.getItems()),
-        verify: (_) {
-          verify(mockGetItems(Empty()));
-        });
-
-    blocTest<ItemsBloc, ItemsState>(
-        'should emit [Loading, Loaded] when data is gotten succesfully',
-        build: () => bloc,
-        act: (bloc) => bloc.add(ItemsEvent.getItems()),
-        expect: () =>
-            [ItemsState.loading(), ItemsState.loaded(items: tItemsList)],
-        verify: (_) {
-          verify(mockGetItems(Empty()));
-        });
-  });
 
     group('Getting data fails', () {
       setUp(() {
@@ -61,7 +63,10 @@ void main() {
           'should emit [Loading, Error] when data is gotten succesfully',
           build: () => bloc,
           act: (bloc) => bloc.add(ItemsEvent.getItems()),
-          expect: () => [ItemsState.loading(), ItemsState.error()],
+          expect: () => [
+                ItemsState.loading(),
+                ItemsState.error(),
+              ],
           verify: (_) {
             verify(mockGetItems(Empty()));
           });

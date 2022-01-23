@@ -34,8 +34,8 @@ class MockDeliveryDataSource extends _i1.Mock
               returnValue: Future<List<_i2.Item>>.value(<_i2.Item>[]))
           as _i4.Future<List<_i2.Item>>);
   @override
-  _i4.Future<_i2.Item> getItemDetails(_i2.GetItemRequest? request) =>
-      (super.noSuchMethod(Invocation.method(#getItemDetails, [request]),
+  _i4.Future<_i2.Item> getItemDetails(String? id) =>
+      (super.noSuchMethod(Invocation.method(#getItemDetails, [id]),
               returnValue: Future<_i2.Item>.value(_FakeItem_0()))
           as _i4.Future<_i2.Item>);
   @override

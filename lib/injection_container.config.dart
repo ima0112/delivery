@@ -12,7 +12,8 @@ import 'feature/data/repositories/delivery_repository_impl.dart' as _i6;
 import 'feature/domain/repositories/delivery_repository.dart' as _i5;
 import 'feature/domain/usecase/get_item_details.dart' as _i7;
 import 'feature/domain/usecase/get_items.dart' as _i8;
-import 'feature/presentation/bloc/items/items_bloc.dart' as _i9;
+import 'feature/presentation/bloc/item_details/item_details_bloc.dart' as _i9;
+import 'feature/presentation/bloc/items/items_bloc.dart' as _i10;
 import 'protos/protos/main.pbgrpc.dart'
     as _i4; // ignore_for_file: unnecessary_lambdas
 
@@ -28,6 +29,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i7.GetItemDetails>(
       () => _i7.GetItemDetails(get<_i5.DeliveryRepository>()));
   gh.factory<_i8.GetItems>(() => _i8.GetItems(get<_i5.DeliveryRepository>()));
-  gh.factory<_i9.ItemsBloc>(() => _i9.ItemsBloc(get<_i8.GetItems>()));
+  gh.factory<_i9.ItemDetailsBloc>(
+      () => _i9.ItemDetailsBloc(get<_i7.GetItemDetails>()));
+  gh.factory<_i10.ItemsBloc>(() => _i10.ItemsBloc(get<_i8.GetItems>()));
   return get;
 }

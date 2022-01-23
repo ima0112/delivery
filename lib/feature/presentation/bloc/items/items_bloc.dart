@@ -16,19 +16,18 @@ class ItemsBloc extends Bloc<ItemsEvent, ItemsState> {
   ItemsBloc(this.getItems) : super(_Initial()) {
     on<ItemsEvent>((event, emit) async {
       event.when(
-        getItems: () async => await _mapEventGetItemsToState(event, emit),
+        getItems: () async => await _mapEventGetItemsToState(emit),
       );
     });
   }
 
-  Future<void> _mapEventGetItemsToState(
-      ItemsEvent event, Emitter<ItemsState> emit) async {
+  Future<void> _mapEventGetItemsToState(Emitter<ItemsState> emit) async {
     emit(ItemsState.loading());
 
     final result = await getItems(Empty());
 
     result.fold(
-      (left) => emit(
+      (_) => emit(
         ItemsState.error(),
       ),
       (items) => emit(

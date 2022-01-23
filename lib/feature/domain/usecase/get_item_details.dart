@@ -6,14 +6,14 @@ import 'package:injectable/injectable.dart';
 import '../../../protos/protos/main.pb.dart';
 
 @injectable
-class GetItemDetails implements UseCase<Item, GetItemRequest> {
+class GetItemDetails implements UseCase<Item, String> {
   final DeliveryRepository deliveryRepository;
 
   GetItemDetails(this.deliveryRepository);
 
   @override
   Future<Either<GrpcError, Item>> call(
-      GetItemRequest request) async {
-    return await deliveryRepository.getItemDetails(request);
+      String id) async {
+    return await deliveryRepository.getItemDetails(id);
   }
 }
