@@ -15,7 +15,7 @@ void main() {
   });
 
   final tRequest = GetItemRequest(id: '1');
-  final tResponse = GetItemResponse(item: Item());
+  final tResponse = Item();
   test('should get Item for the id from the repository', () async {
     when(mockDeliveryDetails.getItemDetails(any))
         .thenAnswer((_) async => Right(tResponse));

@@ -20,8 +20,7 @@ void main() {
   });
 
   group('getItems', () {
-    final tResponse =
-        ListItemResponse(items: List.generate(10, (index) => Item()));
+    final tResponse = List.generate(10, (index) => Item());
 
     test(
         'should return data when '
@@ -49,7 +48,7 @@ void main() {
 
   group('getItemDetails', () {
     final tRequest = GetItemRequest(id: '1');
-    final tResponse = GetItemResponse(item: Item());
+    final tResponse = Item();
 
     test(
         'should return data when '

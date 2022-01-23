@@ -10,13 +10,13 @@ import '../../../protos/protos/main.pb.dart';
 import '../../../protos/google/protobuf/empty.pb.dart';
 
 @injectable
-class GetItems implements UseCase<ListItemResponse, Empty> {
+class GetItems implements UseCase<List<Item>, Empty> {
   final DeliveryRepository deliveryRepository;
 
   GetItems(this.deliveryRepository);
 
   @override
-  Future<Either<GrpcError, ListItemResponse>> call(_) async {
+  Future<Either<GrpcError, List<Item>>> call(_) async {
     return await deliveryRepository.getItems();
   }
 }

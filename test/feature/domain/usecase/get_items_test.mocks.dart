@@ -31,20 +31,18 @@ class MockDeliveryRepository extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.GrpcError, _i6.ListItemResponse>> getItems() =>
+  _i4.Future<_i2.Either<_i5.GrpcError, List<_i6.Item>>> getItems() =>
       (super.noSuchMethod(Invocation.method(#getItems, []),
-              returnValue:
-                  Future<_i2.Either<_i5.GrpcError, _i6.ListItemResponse>>.value(
-                      _FakeEither_0<_i5.GrpcError, _i6.ListItemResponse>()))
-          as _i4.Future<_i2.Either<_i5.GrpcError, _i6.ListItemResponse>>);
+          returnValue: Future<_i2.Either<_i5.GrpcError, List<_i6.Item>>>.value(
+              _FakeEither_0<_i5.GrpcError, List<_i6.Item>>())) as _i4
+          .Future<_i2.Either<_i5.GrpcError, List<_i6.Item>>>);
   @override
-  _i4.Future<_i2.Either<_i5.GrpcError, _i6.GetItemResponse>> getItemDetails(
+  _i4.Future<_i2.Either<_i5.GrpcError, _i6.Item>> getItemDetails(
           _i6.GetItemRequest? request) =>
       (super.noSuchMethod(Invocation.method(#getItemDetails, [request]),
-              returnValue:
-                  Future<_i2.Either<_i5.GrpcError, _i6.GetItemResponse>>.value(
-                      _FakeEither_0<_i5.GrpcError, _i6.GetItemResponse>()))
-          as _i4.Future<_i2.Either<_i5.GrpcError, _i6.GetItemResponse>>);
+              returnValue: Future<_i2.Either<_i5.GrpcError, _i6.Item>>.value(
+                  _FakeEither_0<_i5.GrpcError, _i6.Item>()))
+          as _i4.Future<_i2.Either<_i5.GrpcError, _i6.Item>>);
   @override
   String toString() => super.toString();
 }

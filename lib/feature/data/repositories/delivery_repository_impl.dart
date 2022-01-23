@@ -12,8 +12,7 @@ class DeliveryRepositoryImpl implements DeliveryRepository {
   DeliveryRepositoryImpl({required this.deliveryDataSource});
 
   @override
-  Future<Either<GrpcError, GetItemResponse>> getItemDetails(
-      GetItemRequest request) async {
+  Future<Either<GrpcError, Item>> getItemDetails(GetItemRequest request) async {
     try {
       final item = await deliveryDataSource.getItemDetails(request);
       return Right(item);
@@ -23,7 +22,7 @@ class DeliveryRepositoryImpl implements DeliveryRepository {
   }
 
   @override
-  Future<Either<GrpcError, ListItemResponse>> getItems() async {
+  Future<Either<GrpcError, List<Item>>> getItems() async {
     try {
       final item = await deliveryDataSource.getItems();
       return Right(item);

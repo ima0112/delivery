@@ -6,7 +6,7 @@ import 'dart:async' as _i4;
 
 import 'package:delivery/feature/data/datasource/delivery_data_source.dart'
     as _i3;
-import 'package:delivery/protos/protos/main.pb.dart' as _i2;
+import 'package:delivery/protos/protos/main.pbgrpc.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values
@@ -17,10 +17,7 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: unnecessary_parenthesis
 
-class _FakeListItemResponse_0 extends _i1.Fake implements _i2.ListItemResponse {
-}
-
-class _FakeGetItemResponse_1 extends _i1.Fake implements _i2.GetItemResponse {}
+class _FakeItem_0 extends _i1.Fake implements _i2.Item {}
 
 /// A class which mocks [DeliveryDataSource].
 ///
@@ -32,17 +29,15 @@ class MockDeliveryDataSource extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.ListItemResponse> getItems() =>
+  _i4.Future<List<_i2.Item>> getItems() =>
       (super.noSuchMethod(Invocation.method(#getItems, []),
-              returnValue:
-                  Future<_i2.ListItemResponse>.value(_FakeListItemResponse_0()))
-          as _i4.Future<_i2.ListItemResponse>);
+              returnValue: Future<List<_i2.Item>>.value(<_i2.Item>[]))
+          as _i4.Future<List<_i2.Item>>);
   @override
-  _i4.Future<_i2.GetItemResponse> getItemDetails(_i2.GetItemRequest? request) =>
+  _i4.Future<_i2.Item> getItemDetails(_i2.GetItemRequest? request) =>
       (super.noSuchMethod(Invocation.method(#getItemDetails, [request]),
-              returnValue:
-                  Future<_i2.GetItemResponse>.value(_FakeGetItemResponse_1()))
-          as _i4.Future<_i2.GetItemResponse>);
+              returnValue: Future<_i2.Item>.value(_FakeItem_0()))
+          as _i4.Future<_i2.Item>);
   @override
   String toString() => super.toString();
 }
