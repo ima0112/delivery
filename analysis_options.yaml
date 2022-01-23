@@ -109,3 +109,5 @@ analyzer:
     - "**/*.mocks.dart"
     - "**/*.config.dart"
     - "**/*.pb.dart"
+    - "**/*.freezed.dart"
+
