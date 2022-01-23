@@ -1,9 +1,12 @@
+// 📦 Package imports:
 import 'package:bloc/bloc.dart';
-import 'package:delivery/feature/domain/usecase/get_items.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import '../../../../protos/protos/main.pb.dart';
+
+// 🌎 Project imports:
+import 'package:delivery/feature/domain/usecase/get_items.dart';
 import '../../../../protos/google/protobuf/empty.pb.dart';
+import '../../../../protos/protos/main.pb.dart';
 
 part 'items_event.dart';
 part 'items_state.dart';
@@ -13,9 +16,9 @@ part 'items_bloc.freezed.dart';
 class ItemsBloc extends Bloc<ItemsEvent, ItemsState> {
   final GetItems getItems;
 
-  ItemsBloc(this.getItems) : super(_Initial()) {
+  ItemsBloc(this.getItems) : super(_Loading()) {
     on<ItemsEvent>((event, emit) async {
-      event.when(
+      await event.when(
         getItems: () async => await _mapEventGetItemsToState(emit),
       );
     });

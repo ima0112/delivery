@@ -1,4 +1,9 @@
+// 📦 Package imports:
+import 'package:grpc/grpc.dart';
 import 'package:injectable/injectable.dart';
+
+// 🌎 Project imports:
+import 'package:delivery/core/utils/constant.dart';
 import '../../../protos/google/protobuf/empty.pb.dart';
 import '../../../protos/protos/main.pbgrpc.dart';
 
@@ -9,9 +14,15 @@ abstract class DeliveryDataSource {
 
 @Injectable(as: DeliveryDataSource)
 class DeliveryDataSourceImpl implements DeliveryDataSource {
-  final ItemServiceClient client;
-
-  DeliveryDataSourceImpl({required this.client});
+  final client = ItemServiceClient(
+    ClientChannel(
+      host,
+      port: port,
+      options: ChannelOptions(
+        credentials: ChannelCredentials.insecure(),
+      ),
+    ),
+  );
 
   @override
   Future<Item> getItemDetails(String id) async {
