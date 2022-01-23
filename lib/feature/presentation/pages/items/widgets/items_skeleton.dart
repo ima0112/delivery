@@ -1,7 +1,10 @@
+import 'package:delivery/core/provider/app_provider.dart';
 import 'package:delivery/core/style/styles.dart';
+import 'package:delivery/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:provider/provider.dart';
 
 class SearchGridSkeleton extends StatelessWidget {
   const SearchGridSkeleton({
@@ -27,8 +30,14 @@ class SearchGridSkeleton extends StatelessWidget {
               duration: Times.medium,
               child: FadeInAnimation(
                 child: Shimmer.fromColors(
-                  baseColor: Colors.grey[300]!,
-                  highlightColor: Colors.grey[100]!,
+                  baseColor:
+                      context.watch<AppProvider>().themeMode == ThemeMode.light
+                          ? Colors.grey[300]!
+                          : greyMedium,
+                  highlightColor:
+                      context.watch<AppProvider>().themeMode == ThemeMode.light
+                          ? Colors.grey[100]!
+                          : greyStrong,
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,

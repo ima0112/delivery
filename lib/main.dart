@@ -1,4 +1,6 @@
 // 🐦 Flutter imports:
+import 'package:delivery/core/provider/app_provider.dart';
+import 'package:delivery/core/theme/light_theme.dart';
 import 'package:delivery/feature/presentation/bloc/item_details/item_details_bloc.dart';
 import 'package:delivery/feature/presentation/pages/details/details_page.dart';
 import 'package:flutter/material.dart';
@@ -10,25 +12,31 @@ import 'package:go_router/go_router.dart';
 
 // 🌎 Project imports:
 import 'package:delivery/feature/presentation/pages/items/items_page.dart';
+import 'package:provider/provider.dart';
 import 'core/navigation/transitions.dart';
 import 'core/theme/dark_theme.dart';
-import 'core/theme/light_theme.dart';
 import 'feature/presentation/bloc/items/items_bloc.dart';
 import 'injection_container.dart';
 
-void main() {
-  configureDependencies();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await configureDependencies();
+
   runApp(
-    MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => getIt<ItemsBloc>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<ItemDetailsBloc>(),
-        ),
-      ],
-      child: MyApp(),
+    ChangeNotifierProvider.value(
+      value: AppProvider(),
+      builder: (context, child) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => getIt<ItemsBloc>(),
+          ),
+          BlocProvider(
+            create: (context) => getIt<ItemDetailsBloc>(),
+          ),
+        ],
+        child: MyApp(),
+      ),
     ),
   );
 }
@@ -50,7 +58,7 @@ class _MyAppState extends State<MyApp> {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       title: 'Delivery',
-      themeMode: ThemeMode.system,
+      themeMode: context.watch<AppProvider>().themeMode,
       theme: lightThemeData,
       darkTheme: darkThemeData,
       routeInformationParser: _router.routeInformationParser,
