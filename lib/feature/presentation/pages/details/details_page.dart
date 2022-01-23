@@ -3,6 +3,7 @@ import 'package:delivery/core/style/styles.dart';
 import 'package:delivery/feature/presentation/bloc/item_details/item_details_bloc.dart';
 import 'package:delivery/feature/presentation/pages/details/widgets/app_bar.dart';
 import 'package:delivery/feature/presentation/pages/details/widgets/title.dart';
+import 'package:delivery/feature/presentation/pages/error/error_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
@@ -40,9 +41,7 @@ class _DetailsPageState extends State<DetailsPage> {
         builder: (context, state) {
           return state.when(
             loading: () => ItemsDetailsSkeleton(),
-            error: () => Center(
-              child: Text('Error'),
-            ),
+            error: () => ErrorPage(),
             loaded: (item) {
               return CustomScrollView(
                 scrollDirection: Axis.vertical,

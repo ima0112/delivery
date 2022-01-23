@@ -3,6 +3,7 @@ import 'package:delivery/core/provider/app_provider.dart';
 import 'package:delivery/core/theme/light_theme.dart';
 import 'package:delivery/feature/presentation/bloc/item_details/item_details_bloc.dart';
 import 'package:delivery/feature/presentation/pages/details/details_page.dart';
+import 'package:delivery/feature/presentation/pages/error/error_page.dart';
 import 'package:flutter/material.dart';
 
 // 📦 Package imports:
@@ -94,5 +95,8 @@ class _MyAppState extends State<MyApp> {
         ],
       ),
     ],
+    errorBuilder: (context, state) => Scaffold(
+      body: ErrorPage(),
+    ),
   );
 }
