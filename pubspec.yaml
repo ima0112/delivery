@@ -55,6 +55,10 @@ dev_dependencies:
   flutter_lints: ^1.0.3
   freezed: ^0.14.2
   import_sorter: ^4.6.0
+  # generate the mocks running the following command:
+  # flutter pub run build_runner build
+  # flutter pub run build_runner build --delete-conflicting-outputs
+  mockito: ^5.0.10
 
 import_sorter:
   emojis: true

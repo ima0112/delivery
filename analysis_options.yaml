@@ -108,3 +108,4 @@ analyzer:
     - lib/protos
     - "**/*.mocks.dart"
     - "**/*.config.dart"
+    - "**/*.pb.dart"
