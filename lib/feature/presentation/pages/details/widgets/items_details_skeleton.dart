@@ -1,7 +1,10 @@
 // 🐦 Flutter imports:
+import 'package:delivery/core/provider/app_provider.dart';
 import 'package:delivery/core/style/styled_spacers.dart';
 import 'package:delivery/core/style/styles.dart';
+import 'package:delivery/core/utils/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 // 📦 Package imports:
 import 'package:shimmer/shimmer.dart';
@@ -39,8 +42,13 @@ class ItemDescriptionSkeleton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Shimmer.fromColors(
-        baseColor: Colors.grey[300]!,
-        highlightColor: Colors.grey[100]!,
+        baseColor: context.watch<AppProvider>().themeMode == ThemeMode.light
+            ? Colors.grey[300]!
+            : greyMedium,
+        highlightColor:
+            context.watch<AppProvider>().themeMode == ThemeMode.light
+                ? Colors.grey[100]!
+                : greyStrong,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -88,8 +96,12 @@ class ItemDetailsTitleSkeleton extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Shimmer.fromColors(
-      baseColor: Colors.grey[300]!,
-      highlightColor: Colors.grey[100]!,
+      baseColor: context.watch<AppProvider>().themeMode == ThemeMode.light
+          ? Colors.grey[300]!
+          : greyMedium,
+      highlightColor: context.watch<AppProvider>().themeMode == ThemeMode.light
+          ? Colors.grey[100]!
+          : greyStrong,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
