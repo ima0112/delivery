@@ -8,3 +8,6 @@ Color greyStrong = const Color(0xff333333);
 Color error = const Color(0xFFF44336);
 Color black = Colors.black;
 Color white = Colors.white;
+
+const host = '192.168.0.100';
+const port = 22210;

@@ -5,7 +5,7 @@ import 'package:delivery/protos/protos/main.pb.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import '../../../test/feature/usecase/get_items_test.mocks.dart';
+import '../../../../test/feature/domain/usecase/get_items_test.mocks.dart';
 import 'package:delivery/protos/google/protobuf/empty.pb.dart';
 
 @GenerateMocks([DeliveryRepository])
@@ -18,8 +18,7 @@ void main() {
     usecase = GetItems(mockDeliveryRepository);
   });
 
-  final tResponse =
-      ListItemResponse(items: List.generate(10, (index) => Item()));
+  final tResponse = List.generate(10, (index) => Item());
   test('should get list of items from repository', () async {
     when(mockDeliveryRepository.getItems())
         .thenAnswer((_) async => Right(tResponse));
